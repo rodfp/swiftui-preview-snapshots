@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "PreviewSnapshot",
-            targets: ["PreviewSnapshots"]
+            targets: ["PreviewSnapshot"]
         ),
         
         .library(
@@ -25,15 +25,16 @@ let package = Package(
     targets: [
         // PreviewSnapshots target with no dependancies that can be imported into app code
         .target(
-            name: "PreviewSnapshots",
-            dependencies: []
+            name: "PreviewSnapshot",
+            dependencies: [],
+            path: "Sources/PreviewSnapshots"
         ),
         
         // PreviewSnapshotTesting target the depends on `SnapshotTesting` for use in tests
         .target(
             name: "PreviewSnapshotsTesting",
             dependencies: [
-                "PreviewSnapshots",
+                "PreviewSnapshot",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
             ]
         ),
@@ -42,7 +43,7 @@ let package = Package(
         .testTarget(
             name: "PreviewSnapshotsTests",
             dependencies: [
-                "PreviewSnapshots",
+                "PreviewSnapshot",
                 "PreviewSnapshotsTesting",
             ]
         ),
