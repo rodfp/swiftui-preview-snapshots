@@ -10,7 +10,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "PreviewSnapshots",
+            name: "PreviewSnapshot",
             targets: ["PreviewSnapshots"]
         ),
         
